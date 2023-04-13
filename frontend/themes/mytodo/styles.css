@@ -1,0 +1,13 @@
+[id="main-container"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 30px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 34px;
+}
