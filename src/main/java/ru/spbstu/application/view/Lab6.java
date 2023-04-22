@@ -42,24 +42,24 @@ public class Lab6 extends HorizontalLayout implements BaseView {
     }
 
     public void threading() {
-        List<String> layout = new ArrayList<>();
-
-        AbstractProgram program = new AbstractProgram();
-        Supervisor supervisor = new Supervisor(program, layout);
-        Thread programThread = new Thread(program);
-        Thread supervisorThread = new Thread(supervisor);
-        programThread.start();
-        supervisorThread.start();
-
         try {
+            List<String> layout = new ArrayList<>();
+
+            AbstractProgram program = new AbstractProgram();
+            Supervisor supervisor = new Supervisor(program, layout);
+            Thread programThread = new Thread(program);
+            Thread supervisorThread = new Thread(supervisor);
+            programThread.start();
+            supervisorThread.start();
+
             programThread.join();
             supervisorThread.join();
+
+            layout.forEach((e) -> right_container.add(createDiv(e)));
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        layout.forEach((e) -> right_container.add(createDiv(e)));
     }
 
 }

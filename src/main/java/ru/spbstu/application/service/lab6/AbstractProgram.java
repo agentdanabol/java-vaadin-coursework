@@ -10,7 +10,7 @@ public class AbstractProgram implements Runnable {
 
     public AbstractProgram() {
         this.state = State.UNKNOWN;
-        this.changeInterval = 1000;
+        this.changeInterval = 10;
         daemonThread = new Thread(this::changeStateToRandom);
         daemonThread.setDaemon(true);
         daemonThread.start();
